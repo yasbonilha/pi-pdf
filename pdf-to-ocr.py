@@ -33,9 +33,8 @@ def extract_text_from_image(image):
 
 #implementação
 #passar o pdf como imagem
-def pdf_to_img(pdf):
-    file_path = r"C:\Users\23.01425-3\Documents\pi-pdf\pi-pdf\Documento1.pdf"
-    doc = fitz.open(file_path)  # open document
+def pdf_to_img(pdf_file):
+    doc = fitz.open(pdf_file)  # open document
     for i, page in enumerate(doc):
         pix = page.get_pixmap()  # render page to an image
         image = pix.save(f"page_{i}.png")
@@ -44,7 +43,7 @@ def pdf_to_img(pdf):
 
 #lista para armazenar o texto de todas as páginas
 extracao = []
-pdf_file = r"C:\Users\bonil\Documents\faculdade\terceiro semestre\pi-python-test\Info sobre o pi.pdf"
+pdf_file = r"Documento1.pdf"
 image = pdf_to_img(pdf_file)
 preprocessed_image = image
 text = extract_text_from_image(preprocessed_image)
